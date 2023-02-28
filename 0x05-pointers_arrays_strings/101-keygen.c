@@ -1,12 +1,17 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - Entry point
+ * _strlen - Function that returns the length of a string
  *
- * Return: Always 0 (Success)
+ * @s: this is the input string
+ *
+ * Return: Lenngth of the string
  */
-int main(void)
+int _strlen(char *s)
 {
+	int index;
 
-	return (0);
+	for (index = 0; s[index] != '\0' ; index++)
+		;
+	return (index);
 }
