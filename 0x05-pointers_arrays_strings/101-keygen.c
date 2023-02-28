@@ -1,17 +1,35 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * _strlen - Function that returns the length of a string
+ * main - program that generates random valid
+ * passwords for the program 101-crackme
  *
- * @s: this is the input string
- *
- * Return: Lenngth of the string
+ * Return: Always 0 (Success)
  */
-int _strlen(char *s)
+int main(void)
 {
-	int index;
+	int pass[100];
+	int i, sum, n;
 
-	for (index = 0; s[index] != '\0' ; index++)
-		;
-	return (index);
+	sum = 0;	
+
+	srand(time(NULL));
+
+	for (i = 0; i < 100; i++)
+	{
+		pass[i] = rand() % 78;
+		sum += (pass[i] + '0');
+		putchar(pass[i] + '0');
+		if ((2772 - sum) - '0' < 78)
+		{
+			n = 2772 - sum - '0';
+			sum += n;
+			putchar(n + '0');
+			break;
+		}
+	}
+
+	return (0);
 }
